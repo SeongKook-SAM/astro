@@ -21,9 +21,34 @@
   --color-text-light: #1a202c; /* gray-900 */
   --color-text-dark: #f7fafc; /* gray-100 */
 
+  /* Border Colors*/
+  --color-border-gray: #d5d5d5;
+
   /* Font Sizes */
   --font-size-xxs: 0.625rem;
   --line-height-xxs: 1rem;
+}
+
+/* 커스텀 테마 컬러 클래스 */
+@layer utilities {
+  .border-gray {
+    border-color: var(--color-border-gray);
+  }
+}
+
+/* 버튼 hover 스타일 */
+@layer utilities {
+  .hover-text {
+    &:hover {
+      color: black;
+    }
+  }
+
+  .dark .hover-text {
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 /* 스타일 재사용 */
@@ -50,4 +75,15 @@
 .dark .bg-page {
   background-color: var(--color-bg-dark);
   color: var(--color-text-dark);
+}
+
+/* 배경색과 텍스트 색상 반전 */
+.bg-reverse {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.dark .bg-reverse {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
 }

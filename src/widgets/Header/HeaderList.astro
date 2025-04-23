@@ -64,7 +64,7 @@ const currentPath = pathname.split('/').pop();
           <li>
             <a
               href={`/service/${item.href}`}
-              class={`transition-all hover:text-primary ${isActive ? 'font-bold text-primary' : ''}`}
+              class={`transition-all hover:font-bold ${isActive ? 'font-bold' : ''}`}
             >
               {item.title}
             </a>
