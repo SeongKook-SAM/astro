@@ -1,31 +1,53 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* 다크 모드를 위한 variants 정의 */
+@layer variants {
+  /* 다크 모드 셀렉터 - Tailwind v4에서는 :is() 사용이 권장됨 */
+  .dark {
+    &:is(:root) {
+      color-scheme: dark;
+    }
+  }
+}
 
-/* @layer base {} */
+@theme {
+  /* Colors */
+  --color-primary: #1e40af;
+  --color-dark-primary: #0f2257;
 
-/* @theme {
-  --color-primary: #000;
-  --color-secondary: #fff;
-  --color-tertiary: #000;
-  --color-quaternary: #fff;
-  --color-quinary: #000;
-  --color-senary: #fff;
-} */
+  /* 다크 모드에서 사용할 색상들 */
+  --color-bg-light: #fbfbfb;
+  --color-bg-dark: #0a112a;
+  --color-text-light: #1a202c; /* gray-900 */
+  --color-text-dark: #f7fafc; /* gray-100 */
 
-/* 원하는 커스텀 다크 컬러 예시 */
+  /* Font Sizes */
+  --font-size-xxs: 0.625rem;
+  --line-height-xxs: 1rem;
+}
+
+/* 스타일 재사용 */
+@layer components {
+  .c-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .r-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 페이지 배경색 및 텍스트 색상 */
 .bg-page {
-  @apply bg-[#fbfbfb] text-gray-900;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
 }
+
 .dark .bg-page {
-  @apply bg-[#0a112a] text-gray-100;
-}
-
-/* Flex */
-.r-flex {
-  @apply flex justify-center items-center;
-}
-
-.c-flex {
-  @apply flex flex-col justify-center items-center;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
 }
