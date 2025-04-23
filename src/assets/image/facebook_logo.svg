@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81.004" height="80.999" viewBox="0 0 81.004 80.999">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#18adff"/>
+      <stop offset="1" stop-color="#0064e0"/>
+    </linearGradient>
+  </defs>
+  <path id="제외_1" data-name="제외 1" d="M18174.2,14433h-17.187a17.011,17.011,0,0,1-17.012-17.006v-45.987a17.011,17.011,0,0,1,17.012-17h45.98a17.011,17.011,0,0,1,17.012,17v45.987a17.011,17.011,0,0,1-17.012,17.006h-17.49v-28.552h10.463l1.088-10.769a.3.3,0,0,0-.029-.267c-.078-.12-.295-.264-.885-.264H18185.5v-8.13a6.7,6.7,0,0,1,1.477-4.564,5.436,5.436,0,0,1,4.176-1.581h6.242v-9.507c-.023-.011-2.609-1.133-8.693-1.133l-.5,0h-.018a16,16,0,0,0-10.211,4.221c-.037.033-3.777,3.413-3.777,7.211v13.48h-10.705v11.3h10.705V14433Z" transform="translate(-18139.498 -14352.502)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1" fill="url(#linear-gradient)"/>
+</svg>

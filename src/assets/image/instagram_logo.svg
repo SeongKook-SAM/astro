@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.746" y1="0.059" x2="0.239" y2="0.969" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4845a2"/>
+      <stop offset="0.189" stop-color="#8744a1"/>
+      <stop offset="0.3" stop-color="#a844a1"/>
+      <stop offset="0.351" stop-color="#ab419a"/>
+      <stop offset="0.423" stop-color="#b43b87"/>
+      <stop offset="0.508" stop-color="#c23169"/>
+      <stop offset="0.602" stop-color="#d6243e"/>
+      <stop offset="0.604" stop-color="#d7243e"/>
+      <stop offset="0.877" stop-color="#f9a326"/>
+      <stop offset="1" stop-color="#f9dd26"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_628" data-name="그룹 628" transform="translate(-33.917 -59.237)">
+    <g id="그룹_627" data-name="그룹 627">
+      <g id="그룹_626" data-name="그룹 626">
+        <g id="그룹_625" data-name="그룹 625">
+          <path id="패스_772" data-name="패스 772" d="M113.917,77.987v42.5a18.75,18.75,0,0,1-18.751,18.749h-42.5a18.75,18.75,0,0,1-18.75-18.749v-42.5a18.751,18.751,0,0,1,18.75-18.75h42.5a18.751,18.751,0,0,1,18.751,18.75Z" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+    </g>
+    <path id="패스_773" data-name="패스 773" d="M87.081,67.38H60.331A18.264,18.264,0,0,0,42.067,85.645v26.749a18.264,18.264,0,0,0,18.264,18.265h26.75a18.265,18.265,0,0,0,18.265-18.265V85.645A18.265,18.265,0,0,0,87.081,67.38m12.437,45.485a12.123,12.123,0,0,1-12.124,12.123H60.019A12.123,12.123,0,0,1,47.9,112.865V85.489A12.123,12.123,0,0,1,60.019,73.365H87.394A12.123,12.123,0,0,1,99.518,85.489Z" fill="#fff"/>
+    <path id="패스_774" data-name="패스 774" d="M73.706,82.758A16.419,16.419,0,1,0,90.125,99.177,16.418,16.418,0,0,0,73.706,82.758m0,27.062A10.643,10.643,0,1,1,84.349,99.177,10.643,10.643,0,0,1,73.706,109.82" fill="#fff"/>
+    <path id="패스_775" data-name="패스 775" d="M90.673,78.309A3.825,3.825,0,1,0,94.5,82.134a3.824,3.824,0,0,0-3.825-3.825" fill="#fff"/>
+  </g>
+</svg>

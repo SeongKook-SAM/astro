@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @layer base {} */
+
+/* @theme {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-tertiary: #000;
+  --color-quaternary: #fff;
+  --color-quinary: #000;
+  --color-senary: #fff;
+} */
+
+/* 원하는 커스텀 다크 컬러 예시 */
+.bg-page {
+  @apply bg-[#fbfbfb] text-gray-900;
+}
+.dark .bg-page {
+  @apply bg-[#0a112a] text-gray-100;
+}
+
+/* Flex */
+.r-flex {
+  @apply flex justify-center items-center;
+}
+
+.c-flex {
+  @apply flex flex-col justify-center items-center;
+}

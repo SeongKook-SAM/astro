@@ -1,0 +1,76 @@
+---
+interface HeaderList {
+  idx: number;
+  title: string;
+  href: string;
+}
+
+const headerList: HeaderList[] = [
+  {
+    idx: 0,
+    title: '인스타그램',
+    href: 'instagram',
+  },
+  {
+    idx: 1,
+    title: '유튜브',
+    href: 'youtube',
+  },
+  {
+    idx: 2,
+    title: '스레드',
+    href: 'threads',
+  },
+  {
+    idx: 3,
+    title: 'N플레이스',
+    href: 'nplace',
+  },
+  {
+    idx: 4,
+    title: '틱톡',
+    href: 'tiktok',
+  },
+  {
+    idx: 5,
+    title: '페이스북',
+    href: 'facebook',
+  },
+  {
+    idx: 6,
+    title: '사운드클라우드',
+    href: 'soundcloud',
+  },
+  {
+    idx: 7,
+    title: '트위터',
+    href: 'twitter',
+  },
+];
+
+// 현재 URL 경로에서 detail/xxx 부분 추출
+const pathname = Astro.url.pathname;
+const currentPath = pathname.split('/').pop();
+---
+
+<nav class="w-full px-[12.5%] text-[14px]">
+  <ul class="flex justify-start items-center gap-10 w-full h-[60px]">
+    {
+      headerList.map((item) => {
+        // 현재 경로와 아이템의 href가 일치하는지 확인
+        const isActive = currentPath === item.href;
+
+        return (
+          <li>
+            <a
+              href={`/detail/${item.href}`}
+              class={`transition-all hover:text-primary ${isActive ? 'font-bold text-primary' : ''}`}
+            >
+              {item.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

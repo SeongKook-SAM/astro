@@ -1,0 +1,29 @@
+{
+  "name": "sns-help",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,ts,astro}\" --fix"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "astro": "^5.7.4",
+    "sharp": "^0.34.1",
+    "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

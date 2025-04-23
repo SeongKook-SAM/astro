@@ -1,0 +1,25 @@
+{
+  // 저장 시 Prettier 포맷팅
+  "editor.formatOnSave": true,
+
+  // 저장 시 ESLint도 함께 적용
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Astro 파일은 prettier-plugin-astro를 쓰는 Prettier 확장으로
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // TS/JS 파일도 Prettier
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // CSS 커스텀
+  "css.customData": [".vscode/tailwind.json"]
+}

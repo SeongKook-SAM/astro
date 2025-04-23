@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/image/helpsns_logo_new.svg';
+import ThemeBtn from './ThemeBtn.astro';
+import HeaderList from './HeaderList.astro';
+---
+
+<header class="fixed z-10 w-full top-0 left-0 border-b border-[#f3f3f3]">
+  <div
+    class="bg-white dark:bg-[#0a112a] px-[12.5%] flex justify-between items-center h-[70px] border-b border-[#f3f3f3]"
+  >
+    <picture>
+      <a href="/">
+        <Image src={logo} alt="SNS헬프 로고" loading={'lazy'} width={180} height={36} />
+      </a>
+    </picture>
+    <div class={'r-flex gap-5 '}>
+      <ThemeBtn />
+      <p class={'text-[#828282] font-[500] text-[15px] cursor-pointer '}>고객센터</p>
+      <button
+        type="button"
+        class={'text-[#828282]  text-[13px]  border-[#d5d5d5] rounded-full px-[20px] py-[5px] border-2 cursor-pointer hover:text-black'}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+
+  <div class={'bg-white dark:bg-[#0a112a]'}>
+    <HeaderList />
+  </div>
+</header>
