@@ -15,18 +15,18 @@ type ServiceId =
 // 정적 경로 생성 함수 추가
 export function getStaticPaths() {
   return [
-    { params: { detail: 'instagram' } },
-    { params: { detail: 'youtube' } },
-    { params: { detail: 'threads' } },
-    { params: { detail: 'nplace' } },
-    { params: { detail: 'tiktok' } },
-    { params: { detail: 'facebook' } },
-    { params: { detail: 'soundcloud' } },
-    { params: { detail: 'twitter' } },
+    { params: { service: 'instagram' } },
+    { params: { service: 'youtube' } },
+    { params: { service: 'threads' } },
+    { params: { service: 'nplace' } },
+    { params: { service: 'tiktok' } },
+    { params: { service: 'facebook' } },
+    { params: { service: 'soundcloud' } },
+    { params: { service: 'twitter' } },
   ];
 }
 
-const { detail } = Astro.params;
+const { service } = Astro.params;
 
 // 서비스별 제목 정의 - 타입 안전성 추가
 const serviceTitles: Record<ServiceId, string> = {
@@ -44,7 +44,9 @@ const serviceTitles: Record<ServiceId, string> = {
 const isValidService = (id: string | undefined): id is ServiceId =>
   id !== undefined && Object.keys(serviceTitles).includes(id);
 
-const serviceTitle = isValidService(detail) ? serviceTitles[detail] : detail || '알 수 없는 서비스';
+const serviceTitle = isValidService(service)
+  ? serviceTitles[service]
+  : service || '알 수 없는 서비스';
 
 const pageTitle = `SNS헬프 - ${serviceTitle} 서비스`;
 ---
@@ -52,6 +54,6 @@ const pageTitle = `SNS헬프 - ${serviceTitle} 서비스`;
 <BaseLayout pageTitle={pageTitle}>
   <section class:list={'mt-[130px] px-[12.5%]'}>
     <h1 class="text-2xl font-bold">{serviceTitle} 서비스</h1>
-    <p>현재 보고 있는 서비스: {detail}</p>
+    <p>현재 보고 있는 서비스: {service}</p>
   </section>
 </BaseLayout>
