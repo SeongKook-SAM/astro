@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
@@ -8,7 +9,7 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   output: 'static',
   site: 'https://helpsns.co.kr',
-  integrations: [sitemap(), robotsTxt()],
+  integrations: [sitemap(), robotsTxt(), react()],
 
   prefetch: {
     prefetchAll: true,

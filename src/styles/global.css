@@ -55,8 +55,7 @@
 @layer components {
   .c-flex {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
   }
 
   .r-flex {

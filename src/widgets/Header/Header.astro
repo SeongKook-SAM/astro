@@ -3,25 +3,31 @@ import { Image } from 'astro:assets';
 import logo from 'assets/image/helpsns_logo_new.svg';
 import ThemeBtn from './ThemeBtn.astro';
 import HeaderList from './HeaderList.astro';
+
+// 서버 측에서는 localStorage를 사용할 수 없으므로 제거
+// const isLoggedIn = localStorage.getItem('isLoggedIn');
 ---
 
 <header class="fixed z-10 w-full top-0 left-0 border-b border-[#f3f3f3]">
   <div
     class="bg-page px-[12.5%] flex justify-between items-center h-[70px] border-b border-[#f3f3f3]"
   >
+    <!-- 로고 이미지 -->
     <picture>
       <a href="/">
         <Image src={logo} alt="SNS헬프 로고" loading={'lazy'} width={180} height={36} />
       </a>
     </picture>
+    <!-- 고객센터 && 로그인 -->
     <div class={'r-flex gap-5 '}>
       <ThemeBtn />
       <p class={'text-[#828282] font-[500] text-[15px] cursor-pointer '}>고객센터</p>
       <button
+        id="login-button"
         type="button"
         class="text-[#828282] text-[13px] border-gray rounded-full px-[20px] py-[5px] border-2 cursor-pointer hover-text transition-colors"
       >
-        LOGIN
+        <a href="/login">LOGIN</a>
       </button>
     </div>
   </div>
@@ -30,3 +36,28 @@ import HeaderList from './HeaderList.astro';
     <HeaderList />
   </div>
 </header>
+
+<script>
+  // 클라이언트 측에서 localStorage를 확인하고 버튼 변경
+  document.addEventListener('DOMContentLoaded', () => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const loginButton = document.getElementById('login-button');
+
+    if (isLoggedIn && loginButton) {
+      // 로그인 상태일 때 버튼 텍스트 변경
+      const anchor = loginButton.querySelector('a');
+      if (anchor) {
+        anchor.textContent = 'LOGOUT';
+        anchor.href = '#'; // 로그아웃은 링크가 필요 없을 수 있음
+
+        // 로그아웃 기능 추가
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('userData');
+          window.location.href = '/login';
+        });
+      }
+    }
+  });
+</script>
