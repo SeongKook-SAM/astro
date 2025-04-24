@@ -9,7 +9,19 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   output: 'static',
   site: 'https://helpsns.co.kr',
-  integrations: [sitemap(), robotsTxt(), react()],
+  integrations: [
+    sitemap(),
+    robotsTxt({
+      policy: [
+        {
+          userAgent: '*',
+          allow: ['/'],
+          disallow: ['/admin'],
+        },
+      ],
+    }),
+    react(),
+  ],
 
   prefetch: {
     prefetchAll: true,
