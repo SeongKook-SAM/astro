@@ -65,6 +65,7 @@ const currentPath = pathname.split('/').pop();
             <a
               href={`/service/${item.href}`}
               class={`transition-all hover:font-bold ${isActive ? 'font-bold' : ''}`}
+              data-astro-prefetch="viewport"
             >
               {item.title}
             </a>

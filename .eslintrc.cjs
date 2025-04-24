@@ -145,6 +145,9 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       rules: {
         // TypeScript 파일에 대해서는 모든 @typescript-eslint 규칙 적용
+        // JavaScript 파일에서는 @typescript-eslint 규칙 중 일부만 적용
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
       },
     },
   ],

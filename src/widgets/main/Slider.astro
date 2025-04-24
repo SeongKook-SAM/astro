@@ -120,7 +120,7 @@ const BANNER_TEXT = {
 };
 ---
 
-<section class="w-full h-auto relative bg-gray-600 overflow-hidden">
+<section class="w-full h-auto relative overflow-hidden">
   <!-- Left -->
   <button id="prev-slide" class="absolute top-1/2 left-[7%] -translate-y-1/2 z-10">
     <Image
@@ -171,7 +171,14 @@ const BANNER_TEXT = {
             >
               {/* HTML 문자열을 렌더링하기 위해 set:html 사용 */}
               <div set:html={htmlContent} />
-              <Image src={banner.src} alt={banner.alt} class="w-full h-full object-cover" />
+              <Image
+                src={banner.src}
+                alt={banner.alt}
+                class="w-full h-full object-cover"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchpriority={index === 0 ? 'high' : undefined}
+                decoding={index === 0 ? 'sync' : 'async'}
+              />
             </div>
           );
         })
@@ -220,7 +227,7 @@ const BANNER_TEXT = {
 </section>
 
 <!-- 슬라이더 함수 -->
-<script>
+<script is:inline>
   // 슬라이더 요소 선택
   const sliderTrack = document.getElementById('slider-track');
   const slides = document.querySelectorAll('.slide');
@@ -242,7 +249,7 @@ const BANNER_TEXT = {
   let touchEndX = 0;
 
   // 실제 슬라이드 인덱스 계산 (복제 슬라이드 고려)
-  function getRealIndex(index: number) {
+  function getRealIndex(index) {
     if (index === 0) return realSlideCount - 1;
 
     if (index === totalSlideCount - 1) return 0;
@@ -251,7 +258,7 @@ const BANNER_TEXT = {
   }
 
   // 인디케이터 업데이트
-  function updateIndicators(realIndex: number) {
+  function updateIndicators(realIndex) {
     indicators.forEach((indicator, i) => {
       if (i === realIndex) {
         indicator.classList.add('opacity-70');
@@ -264,7 +271,7 @@ const BANNER_TEXT = {
   }
 
   // 슬라이드 업데이트 함수
-  function updateSlide(index: number, smooth = true) {
+  function updateSlide(index, smooth = true) {
     if (isTransitioning) return;
 
     if (sliderTrack) {
@@ -302,7 +309,7 @@ const BANNER_TEXT = {
   }
 
   // 트랜지션 없이 슬라이드 점프
-  function jumpToSlide(index: number) {
+  function jumpToSlide(index) {
     updateSlide(index, false);
   }
 

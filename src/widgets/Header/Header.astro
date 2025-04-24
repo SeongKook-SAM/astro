@@ -3,9 +3,6 @@ import { Image } from 'astro:assets';
 import logo from 'assets/image/helpsns_logo_new.svg';
 import ThemeBtn from './ThemeBtn.astro';
 import HeaderList from './HeaderList.astro';
-
-// 서버 측에서는 localStorage를 사용할 수 없으므로 제거
-// const isLoggedIn = localStorage.getItem('isLoggedIn');
 ---
 
 <header class="fixed z-10 w-full top-0 left-0 border-b border-[#f3f3f3]">
@@ -27,7 +24,7 @@ import HeaderList from './HeaderList.astro';
         type="button"
         class="text-[#828282] text-[13px] border-gray rounded-full px-[20px] py-[5px] border-2 cursor-pointer hover-text transition-colors"
       >
-        <a href="/login">LOGIN</a>
+        <a id="auth-link" href="/login" style="opacity: 0;">LOGIN</a>
       </button>
     </div>
   </div>
@@ -37,27 +34,37 @@ import HeaderList from './HeaderList.astro';
   </div>
 </header>
 
-<script>
-  // 클라이언트 측에서 localStorage를 확인하고 버튼 변경
+<script is:inline>
+  (function () {
+    // DOM이 파싱되는 즉시 로그인 상태 확인
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const authLink = document.getElementById('auth-link');
+
+    if (authLink) {
+      if (isLoggedIn) {
+        authLink.textContent = 'LOGOUT';
+        authLink.href = '#';
+      } else {
+        authLink.textContent = 'LOGIN';
+        authLink.href = '/login';
+      }
+      // 내용이 설정된 후 표시
+      authLink.style.opacity = '1';
+    }
+  })();
+
+  // 기존 이벤트 리스너 설정
   document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const loginButton = document.getElementById('login-button');
+    const authLink = document.getElementById('auth-link');
 
-    if (isLoggedIn && loginButton) {
-      // 로그인 상태일 때 버튼 텍스트 변경
-      const anchor = loginButton.querySelector('a');
-      if (anchor) {
-        anchor.textContent = 'LOGOUT';
-        anchor.href = '#'; // 로그아웃은 링크가 필요 없을 수 있음
-
-        // 로그아웃 기능 추가
-        anchor.addEventListener('click', (e) => {
-          e.preventDefault();
-          localStorage.removeItem('isLoggedIn');
-          localStorage.removeItem('userData');
-          window.location.href = '/login';
-        });
-      }
+    if (isLoggedIn && authLink) {
+      authLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userData');
+        window.location.href = '/login';
+      });
     }
   });
 </script>
